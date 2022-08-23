@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./iconfont.css">
+    <link rel="shortcut icon" href="google.ico" type="image/x-icon">
+    <title>Google</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .login:hover {
+        text-decoration: none !important;
+        box-shadow: 0 1px 2px 0 rgb(66 133 244 / 30%), 0 1px 3px 1px rgb(66 133 244 / 15%);
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+
+
+    .maintop {
+        display: flex;
+        padding-top: 198px;
+        flex-direction: column;
+        align-items: center;
+        height: 290px;
+        /* background-color: black; */
+    }
+
+    .main {
+        flex-shrink: 0;
+        width: 100%;
+        height: 140px;
+        padding: 20px;
+
+    }
+
+    .mainbottom {
+        flex-shrink: 0;
+        flex-grow: 1;
+        height: 339px;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color: rgb(242, 242, 242);
+
+    }
+
+    .logo {
+        width: 272px;
+        height: 92px;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .searchbox {
+        display: flex;
+        height: 44px;
+        background: #fff;
+        border: 1px solid #dfe1e5;
+
+        border-radius: 24px;
+        margin: 0 auto;
+        max-width: 584px;
+    }
+
+    .search {
+        flex: 1;
+        display: flex;
+        padding: 5px 8px 0 14px;
+    }
+
+    input {
+        background-color: transparent;
+        border: none;
+        padding-left: 13px;
+        flex: 1;
+        outline: none;
+        height: 34px;
+    }
+
+    .searchleft {
+        display: flex;
+
+        width: 20px;
+        align-items: center;
+
+    }
+
+    .searchright {
+        display: flex;
+
+        width: 30px;
+        align-items: center;
+
+    }
+
+    .center {
+        display: flex;
+        padding-top: 18px;
+        justify-content: center;
+    }
+
+    .left,
+    .right {
+        background-color: #f8f9fa;
+        border: 1px solid #f8f9fa;
+        border-radius: 4px;
+        color: #3c4043;
+        font-size: 14px;
+        height: 36px;
+        padding: 0 16px;
+        text-align: center;
+        line-height: 36px;
+        margin: 11px 4px;
+        cursor: pointer;
+    }
+
+    .font {
+        font-size: 12px;
+
+    }
+
+    .mainbottom {
+        display: flex;
+        margin: 10px 0;
+        justify-content: center;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 60px;
+        padding: 6px;
+        /* background-color: pink; */
+
+    }
+
+    .header {
+
+
+        padding: 10px 0;
+        height: 48px;
+
+
+    }
+
+
+
+    .header a {
+        font-size: 12px;
+        margin: 0 10px;
+        color: black;
+
+
+    }
+
+    .headerbox-r a:nth-child(2) {
+        margin-left: 0;
+        margin-right: 20px;
+
+
+
+    }
+
+    .login {
+        background: #1a73e8;
+        border: 1px solid transparent;
+        border-radius: 4px;
+
+        padding: 8px 30px;
+        margin-right: 8px;
+        font-size: 14px;
+        color: #fff !important;
+    }
+
+    .headerbox-r span {
+        position: relative;
+
+    }
+
+    .zhezhao {
+        position: absolute;
+        display: none;
+        width: 40px;
+        height: 40px;
+        top: -10px;
+        left: -25px;
+        border-radius: 40px;
+        background-color: rgb(0, 0, 0, 0.1);
+    }
+
+    .goolgeyingyong {
+        position: absolute;
+        /* visibility: hidden; */
+        display: none;
+        top: 35px;
+        left: -55px;
+        width: 100px;
+        height: 25px;
+        background-color: rgb(0, 0, 0, 0.6);
+        border-radius: 5px;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 25px;
+        /* 这里怎么添加过渡啊？让出现的时候 */
+    }
+
+    .applist {
+
+        display: none;
+
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10px;
+        row-gap: 20px;
+        align-items: center;
+        justify-items: center;
+        position: absolute;
+        top: 50px;
+        left: -195px;
+        width: 300px;
+        height: 300px;
+        /* background-color: pink; */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        border-radius: 5px;
+        overflow: auto;
+    }
+
+    .applist div {
+        /* background-color: blue; */
+        border-radius: 10px;
+        padding-left: 15px;
+        padding-top: 5px;
+        margin-top: 10px;
+        width: 80px;
+        height: 80px;
+
+
+    }
+
+    i {
+        font-style: normal;
+        padding: 8px;
+
+    }
+
+    #small {
+        background-color: transparent;
+    }
+
+
+    .footer {
+        float: left;
+    }
+
+
+    .footer .footer-l {
+        float: left;
+    }
+
+    .footer .footer-r {
+        float: right;
+    }
+
+    li {
+        padding: 15px 5px;
+        margin: 0 10px;
+        display: inline-block;
+        color: rgb(112, 117, 122);
+        font-size: 14px;
+        list-style: none;
+    }
+
+    .footer a:hover {
+        text-decoration: none;
+    }
+
+    .footer span:hover {
+
+        border-bottom: 1px solid rgb(112, 117, 122);
+    }
+
+    .searchbox:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    }
+
+
+    .left:hover {
+        border: 1px solid gray;
+    }
+
+    .right:hover {
+        border: 1px solid gray;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="headerbox-l">
+                <a href="">Google大全</a>
+                <a href="">商店</a>
+            </div>
+            <div class="headerbox-r">
+                <a href="">Gmail</a>
+                <a href="">图片</a>
+                <a href="Javascript:;">
+                    <span class="yingyong iconfont icon-icon_yingyongguanli">
+                        <div class="zhezhao"></div>
+                        <div class="goolgeyingyong">Google应用</div>
+                        <div class="applist">
+                            <div id="small" class="iconfont icon-user">
+                                <br><i>用户</i>
+                            </div>
+                            <div id="small" class="iconfont icon-settings">
+                                <br><i>设置</i>
+                            </div>
+                            <div id="small" class="iconfont icon-weather">
+                                <br><i>天气</i>
+                            </div>
+                            <div id="small" class="iconfont icon-location">
+                                <br><i>定位</i>
+                            </div>
+                            <div id="small" class="iconfont icon-download">
+                                <br><i>下载</i>
+                            </div>
+                            <div id="small" class="iconfont icon-folder-open">
+                                <br><i>文件</i>
+                            </div>
+                            <div id="small" class="iconfont icon-favorite">
+                                <br><i>收藏</i>
+                            </div>
+                            <div id="small" class="iconfont icon-filter">
+                                <br><i>彩蛋</i>
+                            </div>
+                            <div id="small" class="iconfont icon-checklist">
+                                <br><i>待办</i>
+                            </div>
+                            <div id="small" class="iconfont icon-edit-pencil">
+                                <br><i>画画</i>
+                            </div>
+                            <div id="small" class="iconfont icon-publish">
+                                <br><i>上传</i>
+                            </div>
+                            <div id="small" class="iconfont icon-trash">
+                                <br><i>删除</i>
+                            </div>
+
+
+
+                        </div>
+                    </span>
+
+                </a>
+                <a href="" class="login">登录</a>
+
+            </div>
+        </div>
+
+        <div class="maintop">
+
+            <div class="logo">
+                <img src="images/Google.webp" alt="">
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="searchbox">
+                <div class="search">
+                    <div class="searchleft iconfont icon-sousuo">
+
+                    </div>
+                    <input type="" title="Google搜索">
+                    <div class="searchright iconfont icon-yuyin" title="按语音搜索">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="center">
+                <div class="left">
+                    Google搜索
+                </div>
+                <div class="right">
+                    手气不错
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mainbottom">
+            <div class="font">
+                Google 提供：
+                <a href=""> 繁體中文</a>
+                <a href="">English</a>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <ul class="footer-l">
+                <a href="">
+                    <li>
+                        <span>广告</span>
+                    </li>
+                </a>
+                <a href="">
+                    <li><span>商务</span></li>
+                </a>
+
+                <a href="">
+                    <li><span>Google搜索的运作方式</span></li>
+                </a>
+
+            </ul>
+            <ul class="footer-r">
+                <a href="">
+                    <li><span>隐私权</span></li>
+                </a>
+
+                <a href="">
+                    <li><span>条款</span></li>
+                </a>
+
+                <a href="">
+                    <li><span>设置</span></li>
+                </a>
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    let yingyong = document.querySelector('.yingyong')
+    yingyong.addEventListener('mouseover', () => {
+
+        document.querySelector('.zhezhao').style.display = 'block';
+        if (document.querySelector('.applist').style.display == '' || document.querySelector('.applist').style.display == 'none')
+            document.querySelector('.goolgeyingyong').style.display = 'block';
+    })
+    yingyong.addEventListener('mouseout', () => {
+        console.log(document.querySelector('.applist').style.display)
+        if (document.querySelector('.applist').style.display == '' || document.querySelector('.applist').style.display == 'none')
+            document.querySelector('.zhezhao').style.display = 'none';
+        document.querySelector('.goolgeyingyong').style.display = 'none';
+    })
+    yingyong.addEventListener('click', () => {
+        document.querySelector('.zhezhao').style.display = 'block';
+        document.querySelector('.applist').style.display = 'grid';
+
+    })
+
+    let smalls = document.querySelectorAll('#small')
+
+    for (let i = 0; i < smalls.length; i++) {
+        smalls[i].addEventListener('mouseenter', () => {
+
+            smalls[i].style.backgroundColor = 'rgb(233, 240, 254)';
+            document.querySelector('.goolgeyingyong').style.display = 'none';
+
+        })
+        smalls[i].addEventListener('mouseleave', () => {
+
+            smalls[i].style.backgroundColor = 'transparent';
+
+        })
+    }
+
+    document.querySelector('body').addEventListener('click', (e) => {
+        console.log(e)
+        if (e.target.id != 'small' && e.target.className != 'zhezhao' && e.target.className != 'applist') {
+            {
+                document.querySelector('.applist').style.display = 'none';
+                document.querySelector('.zhezhao').style.display = 'none';
+            }
+
+        }
+    })
+
+</script>
+
+</html>
