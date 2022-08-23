@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器Demo by张文昊</title>
+    <link rel="shortcut icon" href="jisuanqi.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/Calculator.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <input disabled type="text" id="sum" value="" readonly="">
+            <input disabled type="text" id="content" value="0" readonly="">
+        </div>
+
+        <div class="main">
+            <div class="buju">
+                <div id='AC' class="common function">
+                    <span>AC</span>
+                </div>
+                <div id='quyu' class="common function">
+                    <span>%</span>
+                </div>
+                <div id='delete' class="common">
+                    <span>Del</span>
+                </div>
+                <div id="jia" class="common function">
+                    <span>+</span>
+                </div>
+            </div>
+            <div class="buju">
+                <div id="1" class="common number">
+                    <span>1</span>
+                </div>
+                <div id="2" class="common number">
+                    <span>2</span>
+                </div>
+                <div id="3" class="common number">
+                    <span>3</span>
+                </div>
+                <div id="jian" class="common function">
+                    <span>-</span>
+                </div>
+            </div>
+            <div class="buju">
+                <div id="4" class="common number">
+                    <span>4</span>
+                </div>
+                <div id="5" class="common number">
+                    <span>5</span>
+                </div>
+                <div id="6" class="common number">
+                    <span>6</span>
+                </div>
+                <div id="cheng" class="common function">
+                    <span>×</span>
+                </div>
+            </div>
+            <div class="buju">
+                <div id="7" class="common number">
+                    <span>7</span>
+                </div>
+                <div id="8" class="common number">
+                    <span>8</span>
+                </div>
+                <div id="9" class="common number">
+                    <span>9</span>
+                </div>
+                <div id="chu" class="common function">
+                    <span>÷</span>
+                </div>
+            </div>
+            <div class="buju last">
+                <div id="dian" class="common dian">
+                    <span>.</span>
+                </div>
+                <div id="0" class="common number">
+                    <span>0</span>
+                </div>
+
+                <div id="" class="common calculate">
+                    <span>＝</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/index.js"></script>
+
+
+
+</html>
